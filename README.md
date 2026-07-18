@@ -1,106 +1,478 @@
- # 简易商业分析 Agent (Simple Business Analysis Agent)
- 
- 基于 [OpenAI Agents SDK](https://github.com/openai/openai-agents-python) 的轻量级商业分析 Agent，可以自动加载 CSV 数据、生成统计摘要、分析趋势、绘制图表并输出商业报告。
- 
- ## 功能特性
- 
- - 自动读取 CSV 文件并识别列结构
- - 生成数值型字段的描述性统计
- - 按产品/区域/类别聚合，识别 Top 5  performers
- - 分析时间序列趋势（起点、终点、涨幅、均值、最大/最小值）
- - 生成可视化图表（保存为 PNG）
- - 输出 Markdown 商业洞察报告
- - 支持替换为自己的数据文件进行分析
- 
- ## 技术栈
- 
- - Python 3.10+
- - OpenAI Agents SDK
- - pandas
- - matplotlib
- - python-dotenv
- 
- ## 快速开始
- 
- 1. 克隆本仓库并进入目录：
- 
- ```bash
- git clone <your-repo-url>.git
- cd business-analysis-agent
- ```
- 
- 2. 安装依赖：
- 
- ```bash
- pip install -r requirements.txt
- ```
- 
- 3. 复制环境变量模板并填入你的 OpenAI API Key：
- 
- ```bash
- cp .env.example .env
- ```
- 
- 4. 运行示例分析：
- 
- ```bash
- python examples/run_analysis.py
- ```
- 
- 运行后会在 `outputs/` 目录下生成 `report.md` 和 `trend_chart.png`。
- 
- ## 分析自己的数据
- 
- ```bash
- python -m src.main path/to/your/data.csv
- ```
- 
- Agent 会自动读取数据、生成摘要、识别 Top 5、分析趋势、绘制图表并保存报告到 `outputs/`。
- 
- ## 项目结构
- 
- ```
- business-analysis-agent/
- ├── README.md
- ├── requirements.txt
- ├── .env.example
- ├── .gitignore
- ├── src/
- │   ├── __init__.py
- │   ├── config.py          # 环境变量与 API Key 配置
- │   ├── tools.py           # 数据分析工具（加载、统计、趋势、图表、报告）
- │   ├── agent.py           # Agent 定义
- │   └── main.py            # 命令行入口
- ├── data/
- │   └── sample_sales.csv   # 示例销售数据
- └── examples/
-     └── run_analysis.py    # 一键运行示例
- ```
- 
- ## 环境变量
- 
- | 变量 | 说明 | 默认值 |
- |------|------|--------|
- | `OPENAI_API_KEY` | OpenAI API Key | 必填 |
- | `OPENAI_MODEL` | 使用的模型 | `gpt-4o-mini` |
- 
- ## 示例输出
- 
- 运行 `python examples/run_analysis.py` 后，Agent 会生成类似以下的报告：
- 
- - 数据集概览：行数、列名、样例数据
- - 描述性统计：销售额、销量、利润等核心指标
- - Top 5 产品/区域分析
- - 时间序列趋势与环比变化
- - 商业建议（如高利润产品推荐、区域发力方向）
- 
- ## 扩展建议
- 
- - 接入 Excel 文件：在 `tools.py` 中增加 `pd.read_excel`
- - 接入数据库：增加 SQL 查询工具
- - 接入更多图表：在 `generate_chart` 中支持柱状图、饼图
- - 多 Agent 协作：用 LangGraph 拆分为“数据工程师 + 商业分析师 + 报告撰写员”
- 
- ## 许可证
- 
- MIT
+# 🤖 RichonAgent — AI Business Intelligence Analyst Agent
+
+> An autonomous AI-powered business analysis agent that transforms raw business data into actionable insights, visualizations, and executive-level reports.
+
+RichonAgent is an AI Business Analyst Copilot built with the **OpenAI Agents SDK**. It automates the traditional business analytics workflow — from loading datasets, discovering KPIs, identifying trends, generating visualizations, and producing structured business reports.
+
+Instead of manually exploring Excel files and creating dashboards, users can simply provide business data and let the agent generate analytical insights automatically.
+
+---
+
+# 🚀 Why RichonAgent?
+
+Business teams spend significant time on repetitive analytical tasks:
+
+- Cleaning raw datasets
+- Calculating KPIs
+- Identifying business trends
+- Creating charts
+- Writing management reports
+
+RichonAgent automates this workflow through an AI Agent pipeline:
+
+```
+Business Data
+(CSV / Excel / Database)
+
+        ↓
+
+Data Understanding Agent
+
+        ↓
+
+KPI & Trend Analysis
+
+        ↓
+
+Visualization Generation
+
+        ↓
+
+Business Insight Generation
+
+        ↓
+
+Executive Report
+```
+
+The goal is to build an AI-powered business analyst that can support decision-making across sales, operations, finance, and strategy teams.
+
+---
+
+# ✨ Key Features
+
+## 📂 Automated Data Understanding
+
+- Automatically loads CSV datasets
+- Detects dataset structure
+- Identifies numerical and categorical variables
+- Generates dataset overview
+
+Example:
+
+```
+Dataset:
+- Rows: 10,000
+- Columns: 12
+- Key Metrics:
+  Revenue
+  Profit
+  Quantity
+  Region
+```
+
+---
+
+## 📊 KPI Analysis Engine
+
+Automatically calculates business metrics:
+
+- Revenue performance
+- Sales growth
+- Profit analysis
+- Average order value
+- Product performance
+- Regional contribution
+
+---
+
+## 📈 Trend Detection
+
+The agent analyzes time-series data and identifies:
+
+- Growth / decline patterns
+- Period-over-period changes
+- Maximum and minimum points
+- Seasonal trends
+
+Example output:
+
+```
+Revenue increased by 18% over the analyzed period.
+
+The Northeast region contributed 42% of total revenue.
+
+Product A showed continuous decline for 3 months.
+```
+
+---
+
+## 🏆 Business Ranking Analysis
+
+Automatically discovers top performers:
+
+- Top 5 products
+- Top regions
+- Best-performing categories
+- High-value segments
+
+---
+
+## 📉 AI Visualization Generation
+
+Automatically generates business charts:
+
+Supported:
+
+- Line charts
+- Bar charts
+- Trend charts
+- Performance comparisons
+
+Generated outputs:
+
+```
+outputs/
+
+├── trend_chart.png
+└── report.md
+```
+
+---
+
+## 📝 Executive Business Report Generation
+
+Creates structured management reports:
+
+Including:
+
+- Business overview
+- Key findings
+- Performance analysis
+- Risks
+- Strategic recommendations
+
+Example:
+
+```
+Executive Summary
+
+Revenue increased by 15%.
+
+Main growth driver:
+Online channel (+23%).
+
+Recommendation:
+Increase inventory allocation
+for high-growth categories.
+```
+
+---
+
+# 🏗️ System Architecture
+
+```
+                 User
+
+                  │
+
+                  ▼
+
+        Business Analysis Agent
+
+                  │
+
+     ┌────────────┼────────────┐
+
+     ▼            ▼            ▼
+
+ Data Loader   KPI Engine   Chart Generator
+
+     │            │            │
+
+     └────────────┼────────────┘
+
+                  ▼
+
+        Insight Generation
+
+                  │
+
+                  ▼
+
+        Executive Report
+```
+
+---
+
+# 🛠️ Technology Stack
+
+## AI Framework
+
+- OpenAI Agents SDK
+
+## Data Processing
+
+- Python
+- pandas
+- NumPy
+
+## Visualization
+
+- matplotlib
+
+## Environment
+
+- python-dotenv
+
+---
+
+# 📂 Project Structure
+
+```
+RichonAgent/
+
+├── README.md
+
+├── requirements.txt
+
+├── .env.example
+
+│
+
+├── src/
+
+│   ├── config.py
+│   │      # Environment configuration
+│
+│   ├── tools.py
+│   │      # Data analysis tools
+│
+│   ├── agent.py
+│   │      # AI Agent definition
+│
+│   └── main.py
+│          # Application entry point
+│
+
+├── data/
+
+│   └── sample_sales.csv
+
+│
+
+├── examples/
+
+│   └── run_analysis.py
+
+│
+
+└── outputs/
+
+    ├── report.md
+
+    └── charts/
+```
+
+---
+
+# ⚡ Quick Start
+
+## 1. Clone Repository
+
+```bash
+git clone https://github.com/tylerchan13/RichonAgent.git
+
+cd RichonAgent
+```
+
+---
+
+## 2. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## 3. Configure API Key
+
+Create `.env`
+
+```bash
+OPENAI_API_KEY=your_api_key
+
+OPENAI_MODEL=gpt-4o-mini
+```
+
+---
+
+## 4. Run Demo
+
+```bash
+python examples/run_analysis.py
+```
+
+Generated files:
+
+```
+outputs/
+
+├── report.md
+
+└── trend_chart.png
+```
+
+---
+
+# 📌 Example Use Case
+
+## Input
+
+Sales dataset:
+
+```
+sales.csv
+
+Columns:
+
+Date
+Product
+Region
+Revenue
+Profit
+Quantity
+```
+
+---
+
+## Agent Output
+
+```
+Business Insights:
+
+1.
+Revenue increased 12% compared with previous period.
+
+2.
+Product A generated the highest revenue contribution.
+
+3.
+Region South shows the strongest growth potential.
+
+Recommendations:
+
+- Increase inventory for Product A.
+- Investigate declining products.
+- Expand marketing investment in South region.
+```
+
+---
+
+# 💼 Business Applications
+
+RichonAgent can support:
+
+### Sales Analytics
+
+- Revenue monitoring
+- Product performance
+- Regional analysis
+
+
+### Business Operations
+
+- Efficiency analysis
+- Inventory insights
+- Process optimization
+
+
+### Marketing Analytics
+
+- Customer segmentation
+- Campaign performance
+
+
+### Finance Analytics
+
+- Profitability analysis
+- Cost analysis
+- Performance reporting
+
+---
+
+# 🗺️ Roadmap
+
+## ✅ Version 1.0
+
+- CSV data analysis
+- KPI generation
+- Trend analysis
+- Visualization
+- Markdown reports
+
+
+## 🔄 Version 2.0
+
+- Excel support
+- SQL database integration
+- Automated anomaly detection
+- Root cause analysis
+
+
+## 🔄 Version 3.0
+
+Multi-Agent Architecture:
+
+```
+Planner Agent
+
+      ↓
+
+Data Analyst Agent
+
+      ↓
+
+Visualization Agent
+
+      ↓
+
+Business Consultant Agent
+
+      ↓
+
+Report Agent
+```
+
+
+## 🔮 Future Development
+
+- RAG for financial reports and industry research
+- Memory system
+- MCP tool integration
+- Streamlit dashboard
+- API deployment
+- Real-time business monitoring
+- Stock research capability
+
+---
+
+# 🎯 Vision
+
+RichonAgent aims to evolve into an **Enterprise AI Business Analyst** that combines data analytics, artificial intelligence, and business strategy to help organizations make faster and smarter decisions.
+
+---
+
+# 👨‍💻 Author
+
+Tyler Chen
+
+GitHub:
+https://github.com/tylerchan13
+
+---
+
+# 📄 License
+
+MIT License
