@@ -34,9 +34,3 @@ py_pkgs*/
 tmp/
 outputs/
 work/
- 
- # Sandbox / alternate git metadata
- .git/
- gitdir/
- gitdir
- gitdir/**
