@@ -1,0 +1,42 @@
+# Environment variables
+.env
+.env.*
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temporary dependency / runtime directories
+.python_pkgs/
+py_pkgs*/
+tmp/
+outputs/
+work/
+ 
+ # Sandbox / alternate git metadata
+ .git/
+ gitdir/
+ gitdir
+ gitdir/**
