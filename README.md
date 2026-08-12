@@ -14,7 +14,7 @@ RichonAgent 是一款基于 **OpenAI Agents SDK** 构建的自主式 AI 商业�
 
 ---
 
-## 🇬🇧 English Overview
+## English Overview
 
 RichonAgent is an autonomous AI-powered Business Intelligence Analyst Copilot built with the **OpenAI Agents SDK**. It automates the end-to-end business analytics workflow — from ingesting raw datasets, uncovering key performance indicators (KPIs), identifying market trends, generating charts, and producing structured executive management reports.
 
@@ -100,7 +100,7 @@ Executive Business Report (.md)
 - **Visualization:** Matplotlib, Seaborn
 - **Environment:** python-dotenv
 
-### 2. 代码设计亮点 (面试官/HR 查看看点)
+### 2. 代码设计亮点 
 - **Code & LLM Decoupling (算解分离/零幻觉保证):** 所有数值计算与异常高亮点均在底层的 Python/Pandas 代码中确定性跑出，Agent 仅负责分析逻辑调度与归纳提炼，彻底避免大模型在算数时的数值幻觉（Hallucination）。
 - **Standardized Tool Interfaces (标准化工具接口):** 按照 OpenAI Tool Definition 标准进行入参与出参约束，代码易维护，后续可无缝接入 MCP (Model Context Protocol) 协议。
 - **Zero-API Cost Lightweight Mode (轻量化单文件验证):** 内置 `run_tiktok_mvp_lite.py` 测试流程，无需依赖任何 API Key 即可本地跑通数据闭环，极具可移植性与测试效率。
