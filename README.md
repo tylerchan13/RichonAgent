@@ -19,7 +19,7 @@
 
 项目旨在解决企业中重度依赖人工清洗 Excel、算指标、做 Dashboard 和写总结报告的效率痛点，实现从“原始数据”到“商业决策洞察”的自动化跃迁。
 
-## 🇬🇧 English Overview
+## English Overview
 
 **RichonAgent** is an autonomous AI-powered Business Intelligence Analyst Copilot built with the **OpenAI Agents SDK**. It automates the end-to-end business analytics workflow — from ingesting raw datasets, uncovering key performance indicators (KPIs), identifying market trends, generating charts, and producing structured executive management reports.
 
@@ -95,7 +95,7 @@ Executive Business Report (.md)
 * **Visualization:** Matplotlib
 * **Environment:** python-dotenv
 
-### 2. 代码设计亮点 (面试官/HR 查看看点)
+### 2. 代码设计亮点 
 * **Code & LLM Decoupling (算解分离/零幻觉保证):** 所有数值计算均在 `tools.py` 中通过原生 Python/Pandas 代码跑出，Agent 仅负责分析逻辑调度与归档提炼，彻底避免大模型在算数时的幻觉（Hallucination）。
 * **Standardized Tool Interfaces (标准化工具接口):** 按照 OpenAI Tool Definition 标准进行入参与出参约束，代码易维护，后续可无缝接入 MCP (Model Context Protocol) 协议。
 * **Structured Artifact Output (结构化交付物):** 规范化的自动化输出管理，生成可直接投喂给上级的标准 Markdown 报告与高清晰度图片资产。
