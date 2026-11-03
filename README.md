@@ -1,5 +1,11 @@
 # 🤖 RichonAgent — AI Business Intelligence Analyst Agent
 
+## Web demo
+
+[Open the Richon Agent demo](https://richon-agent-studio.peppy-frog-5524.chatgpt.site/) — no login or API key required.
+
+The [React web app](web/README.md) supports CSV upload, deterministic KPIs, interactive charts, region filtering, and downloadable reports. Data stays in the browser; insights are rule-based.
+
 > An autonomous AI-powered business analysis agent that transforms raw business data into actionable insights, visualizations, and executive-level reports.
 
 ![Status](https://img.shields.io/badge/Status-v1.0_MVP-blue)
