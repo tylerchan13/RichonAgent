@@ -1,10 +1,36 @@
 # 🤖 RichonAgent — AI Business Intelligence Analyst Agent
 
-> An autonomous AI-powered business analysis agent that transforms raw business data into actionable insights, visualizations, and executive-level reports.
+> A lightweight business analytics assistant for retail, e-commerce and trading teams — turning sales CSVs into KPIs, visualizations and review-ready reports.
 
 ![Status](https://img.shields.io/badge/Status-v1.0_MVP-blue)
 ![Framework](https://img.shields.io/badge/Framework-OpenAI_Agents_SDK-purple)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
+## 🎯 项目定位与业务价值 | Positioning & Business Value
+
+**RichonAgent 是面向零售、电商及批发贸易团队的轻量经营分析助手，将销售 CSV 转化为经营指标、可视化洞察和可交付的复盘报告。**
+
+适合使用者包括中小企业负责人、零售与电商运营、销售运营，以及需要定期做经营复盘的业务分析人员。当前最适合分析按日期、产品和地区记录的销售流水。
+
+### 可以解决哪些业务痛点？
+
+| 业务痛点 | RichonAgent 提供的帮助 |
+| :--- | :--- |
+| **每次换一张销售表，都要重新计算指标** | 上传 CSV 并确认字段对应后，自动计算销售收入、利润、利润率和销售数量，减少重复计算与手工整理。 |
+| **有明细数据，却难以快速看清经营表现** | 将销售记录转换为月度趋势、产品贡献和地区表现，帮助用户识别值得进一步关注的业务变化。 |
+| **经营复盘需要反复切换分析范围** | 按地区筛选后，指标、图表和报告同步更新，方便查看不同市场的表现。 |
+| **分析完成后，还要重新组织汇报材料** | 自动整理业务概览、关键观察及计算口径，支持下载 Markdown 报告和打印保存 PDF，作为业务汇报初稿。 |
+| **小团队缺少专门的分析系统和技术配置** | 在线 Demo 无需登录或配置 API Key，即可使用销售 CSV 开始分析；上传数据仅在访问者自己的浏览器中处理。 |
+
+### 典型使用场景
+
+一位零售或电商运营负责人上传销售流水，查看收入与利润表现、哪些产品贡献最多、不同地区的销售情况以及最近月份的变化，再将报告带入经营复盘会议。
+
+输入数据至少需要 **日期、销售额**，可选字段为 **利润、数量、产品、地区**。Excel 数据可先另存为 CSV 后导入。利润口径和原始币种由用户确认；当前不进行汇率换算，也不将数据记录数推定为订单数。
+
+**[打开在线 Demo →](https://richon-agent-studio.peppy-frog-5524.chatgpt.site/)**
+
+> 当前在线 Demo 的指标由确定性代码计算，洞察与报告由规则生成，尚未连接实时大模型。上传数据仅保留在当前页面内存中，刷新后清除。现阶段的价值主要是计算、呈现和汇报提效；业务变化的原因、预测及金融风控等行业专用分析仍需更多数据与能力支持。
 
 ---
 
